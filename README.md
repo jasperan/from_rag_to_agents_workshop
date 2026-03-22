@@ -118,7 +118,6 @@ from_rag_to_agents_workshop/
 │   ├── part-7-orchestration.md
 │   └── part-8-session-memory.md
 ├── images/
-├── 01_vector_memory.sql
 ├── requirements.txt
 └── README.md
 ```

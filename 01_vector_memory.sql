@@ -1,1 +1,0 @@
-ALTER SYSTEM SET vector_memory_size = 512M SCOPE=SPFILE;
