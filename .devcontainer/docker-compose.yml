@@ -1,6 +1,6 @@
 services:
   oracle:
-    image: gvenzl/oracle-free:23-slim
+    image: gvenzl/oracle-free:23-full
     container_name: oracle-free
     environment:
       ORACLE_PASSWORD: OraclePwd_2025

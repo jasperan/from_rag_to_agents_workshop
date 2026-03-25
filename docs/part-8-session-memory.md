@@ -22,7 +22,7 @@ The key insight: the same Oracle database that stores your research papers and e
 
 ---
 
-## TODO 8: Implement `OracleSession`
+## TODO 7: Implement `OracleSession`
 
 Build a class that provides four async methods for managing session state in Oracle:
 
@@ -114,7 +114,7 @@ This gives a practical template for evaluating memory quality and debugging memo
 
 ## Key Takeaways
 
-**Oracle AI Database can serve as both your retrieval store and your session memory store.** The same database that holds 1,000 research paper vectors also holds conversation state — one connection, one transaction boundary, one system to manage.
+**Oracle AI Database can serve as both your retrieval store and your session memory store.** The same database that holds 200 research paper vectors also holds conversation state — one connection, one transaction boundary, one system to manage.
 
 **The same `chat_history` table supports both chat history and session memory.** Part 7 used it for storing conversation turns. Part 8 uses it for the session adapter. Same table, different access patterns.
 

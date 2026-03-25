@@ -6,7 +6,7 @@ With embeddings ready in the DataFrame, you now create the Oracle schema to hold
 
 1. Create the `RESEARCH_PAPERS` table with a `VECTOR` column
 2. Create vector (HNSW) and full-text (Oracle Text) indexes
-3. Ingest the 1,000 papers into Oracle
+3. Ingest the 200 papers into Oracle
 4. Create relational tables for graph retrieval (authors, similarities)
 5. Build and register a SQL Property Graph
 
@@ -48,7 +48,7 @@ PARAMETERS ('SYNC (ON COMMIT)')
 
 ---
 
-## TODO 2: Implement `create_research_papers_table`
+## TODO 1: Implement `create_research_papers_table`
 
 Write a function that:
 1. Drops dependent tables safely (paper_similarities, paper_authors, authors, research_papers)

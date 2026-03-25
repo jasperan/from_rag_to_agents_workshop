@@ -8,7 +8,7 @@
 
 ## What You Will Build
 
-Starting from raw data, you will construct a **Research Paper Assistant** — a multi-agent system that retrieves, reasons over, and discusses 1,000 ArXiv papers stored in Oracle AI Database. Along the way you'll implement five retrieval strategies, build an end-to-end RAG pipeline, wrap retrieval as agent tools, compose a multi-agent orchestration system, and finish with persistent session memory backed by Oracle.
+Starting from raw data, you will construct a **Research Paper Assistant** — a multi-agent system that retrieves, reasons over, and discusses 200 ArXiv papers stored in Oracle AI Database. Along the way you'll implement five retrieval strategies, build an end-to-end RAG pipeline, wrap retrieval as agent tools, compose a multi-agent orchestration system, and finish with persistent session memory backed by Oracle.
 
 ## Workshop Parts
 
@@ -23,18 +23,22 @@ Starting from raw data, you will construct a **Research Paper Assistant** — a 
 | 7 | Agent orchestration and chat system | [Part 7 Guide](docs/part-7-orchestration.md) |
 | 8 | Session memory with Oracle AI Database | [Part 8 Guide](docs/part-8-session-memory.md) |
 
-> **[TODO Checklist](docs/TODO-checklist.md)** — all 8 tasks at a glance with links to their guide sections.
+> **[TODO Checklist](docs/TODO-checklist.md)** — all 7 tasks at a glance with links to their guide sections.
 
 ## Getting Started
 
 ### Option A: GitHub Codespaces (recommended for the workshop)
 
 1. Click the **Open in GitHub Codespaces** badge above
-2. Wait for the environment to build (~3-5 minutes)
+2. Click the **Create Codespace** button to launch your environment
+
+   ![Create Codespace](images/codespaces_creation.png)
+
+3. Wait for the environment to build (~3-5 minutes)
 
    ![Codespace startup](images/codespace_startup.png)
 
-3. Once the terminal prompt appears, start Oracle AI Database:
+4. Once the terminal prompt appears, start Oracle AI Database:
 
    > **Tip:** If your browser prompts you to allow clipboard pasting, click **Allow** so you can paste commands into the terminal.
 
@@ -44,7 +48,7 @@ Starting from raw data, you will construct a **Research Paper Assistant** — a 
 
    ![Oracle getting pulled](images/oracle_getting_pulled.png)
 
-4. Wait for Oracle to become healthy (~60-90 seconds), then verify:
+5. Wait for Oracle to become healthy (~60-90 seconds), then verify:
    ```bash
    docker ps
    ```
@@ -52,16 +56,16 @@ Starting from raw data, you will construct a **Research Paper Assistant** — a 
 
    ![Oracle ready](images/oracle_ready.png)
 
-5. Confirm the Python connection works:
+6. Confirm the Python connection works:
    ```bash
    python3 -c "import oracledb; c = oracledb.connect(user='VECTOR', password='VectorPwd_2025', dsn='localhost:1521/FREEPDB1'); print('Connected. Oracle version:', c.version); c.close()"
    ```
 
    ![Database ready](images/database_ready.png)
 
-6. Open [`workshop/notebook_student.ipynb`](workshop/notebook_student.ipynb) in the file explorer
-7. Select the **From RAG to Agents Workshop** kernel from the top-right kernel picker
-8. Follow the notebook cells top to bottom, using the part guides in `docs/` when you hit a TODO
+7. Open [`workshop/notebook_student.ipynb`](workshop/notebook_student.ipynb) in the file explorer
+8. Select the **From RAG to Agents Workshop** kernel from the top-right kernel picker
+9. Follow the notebook cells top to bottom, using the part guides in `docs/` when you hit a TODO
 
 You will need:
 - A GitHub account (free)
@@ -119,10 +123,10 @@ from-rag-to-agents-workshop/
 
 ## Stack
 
-- Oracle AI Database via `gvenzl/oracle-free:23-slim`
+- Oracle AI Database via `gvenzl/oracle-free:23-full`
 - `sentence-transformers` — local embedding model (nomic-embed-text-v1.5, 768-dim), no API key needed
 - `oracledb` — Python Oracle driver
-- `OpenAI API` — LLM generation (GPT-4o)
+- `OpenAI API` — LLM generation (GPT-5)
 - `openai-agents` — Agent SDK (Agent, Runner, function_tool, orchestration)
 
 ## Where to Next?

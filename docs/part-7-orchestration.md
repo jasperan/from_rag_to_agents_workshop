@@ -29,7 +29,7 @@ This mirrors a production pattern where narrow agents perform focused work and a
 
 ---
 
-## TODO 7: Implement the Orchestrator Agent
+## TODO 6: Implement the Orchestrator Agent
 
 Define the orchestrator that uses `agent.as_tool()` to register specialists as callable tools:
 

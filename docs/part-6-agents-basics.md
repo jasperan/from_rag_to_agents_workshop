@@ -27,7 +27,7 @@ from agents import Agent, Runner
 
 research_paper_assistant = Agent(
     name="Research Paper Assistant",
-    model="gpt-4o",
+    model=OPENAI_MODEL,
     instructions="You are a Research Paper Assistant...",
 )
 result = await Runner.run(research_paper_assistant, input="Summarize recent research on optimization")
@@ -37,7 +37,7 @@ result = await Runner.run(research_paper_assistant, input="Summarize recent rese
 
 ---
 
-## TODO 6: Implement `get_research_papers` Tool
+## TODO 5: Implement `get_research_papers` Tool
 
 Wrap the SQL retrieval functions from Part 4 in an `@function_tool` decorator so the agent can call them autonomously.
 

@@ -23,7 +23,7 @@ This is provided complete — read through it to understand the baseline that ot
 
 ---
 
-## TODO 3: Implement `vector_search_research_papers`
+## TODO 2: Implement `vector_search_research_papers`
 
 Write a function that performs pure semantic search:
 1. Encodes the query using the embedding model with `search_query:` prefix
@@ -74,7 +74,7 @@ def vector_search_research_papers(conn, embedding_model, search_query, top_k=5):
 
 ---
 
-## TODO 4: Implement `hybrid_search_research_papers_pre_filter`
+## TODO 3: Implement `hybrid_search_research_papers_pre_filter`
 
 Combine keyword filtering with vector ranking:
 1. Encode the query (same as vector search)
@@ -129,6 +129,6 @@ The final cell runs all strategies on the same query and displays results side-b
 
 **"ORA-29902: CONTAINS error"** — The Oracle Text index may not be synced. Run: `EXEC CTX_DDL.SYNC_INDEX('rp_text_idx')`
 
-**Empty vector results** — Verify data was ingested: `SELECT COUNT(*) FROM research_papers`. You should see 1,000 rows.
+**Empty vector results** — Verify data was ingested: `SELECT COUNT(*) FROM research_papers`. You should see 200 rows.
 
 **Slow vector queries** — Check that the HNSW index was created successfully. Without it, Oracle falls back to exact brute-force scan.

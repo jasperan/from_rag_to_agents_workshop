@@ -14,7 +14,7 @@ This means your entire retrieval pipeline — keyword, vector, hybrid, and graph
 
 ## Your Environment
 
-In this Codespace, Oracle AI Database is already running as a Docker service (`gvenzl/oracle-free:23-slim`). The service starts automatically and passes a healthcheck before your development container boots.
+In this Codespace, Oracle AI Database is already running as a Docker service (`gvenzl/oracle-free:23-full`). The service starts automatically and passes a healthcheck before your development container boots.
 
 | Setting | Value |
 |---|---|
@@ -27,7 +27,9 @@ In this Codespace, Oracle AI Database is already running as a Docker service (`g
 
 You will connect as the `VECTOR` user for all workshop tasks. This is a dedicated schema for storing embeddings and research data — it follows the principle of least privilege rather than connecting as SYS.
 
-## TODO 1: Implement `connect_to_oracle`
+## The `connect_to_oracle` Helper (Pre-built)
+
+This section is pre-built in the notebook — just run the cells. The code below is provided for reference.
 
 **Why retry logic?** Docker healthchecks verify the container is running, but Oracle's listener can take a few extra seconds to become fully ready after the healthcheck passes. A retry loop makes the connection resilient to this transient window.
 
@@ -43,7 +45,7 @@ oracledb.connect(
 
 The `dsn` format is `host:port/service_name`.
 
-**Complete solution:**
+**Implementation:**
 
 ```python
 import oracledb

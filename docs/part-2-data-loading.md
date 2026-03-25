@@ -2,7 +2,7 @@
 
 ## What You Are Building
 
-Before you can search anything, you need data in a searchable form. In this part, 1,000 ArXiv research papers flow through a three-stage pipeline:
+Before you can search anything, you need data in a searchable form. In this part, 200 ArXiv research papers flow through a three-stage pipeline:
 
 1. **Stream** papers from Hugging Face without downloading the full dataset
 2. **Clean** and structure the data into a DataFrame
@@ -19,7 +19,7 @@ We use `load_dataset` from the `datasets` library with `streaming=True` to avoid
 - We extract: `arxiv_id`, `title`, `abstract`, `authors`, and a combined `text` field
 - Authors are normalised to a list of strings regardless of input format
 
-**Why streaming?** The full ArXiv dataset is large. Streaming lets you iterate through records one at a time and stop after 1,000 — no disk space wasted, no memory pressure.
+**Why streaming?** The full ArXiv dataset is large. Streaming lets you iterate through records one at a time and stop after 200 — no disk space wasted, no memory pressure.
 
 ## The Embedding Model
 

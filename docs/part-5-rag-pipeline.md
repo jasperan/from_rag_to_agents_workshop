@@ -13,9 +13,7 @@ The result is a single function that takes a user question, retrieves relevant p
 
 ## Configure API Access
 
-We use a `set_env_securely()` helper with `getpass` to set `OPENAI_API_KEY` without exposing it in notebook output.
-
-**Why `getpass`?** Notebook cells are often shared or screenshotted. `getpass` ensures the API key never appears in cell output, even if the notebook is exported.
+The notebook reads `OPENAI_API_KEY` from environment variables. In GitHub Codespaces, set it as a Codespace secret so it is available automatically. For local development, export it in your shell before launching Jupyter.
 
 ## Initialise the OpenAI Client
 
@@ -23,9 +21,9 @@ A simple smoke test confirms credentials work:
 
 ```python
 from openai import OpenAI
-openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+openai_client = OpenAI(api_key=openai_api_key)
 response = openai_client.responses.create(
-    model="gpt-4o",
+    model="gpt-5",
     input="Hello!",
     instructions="You are a research paper assistant.",
 )
@@ -33,7 +31,7 @@ response = openai_client.responses.create(
 
 ---
 
-## TODO 5: Implement `research_paper_assistant_rag_pipeline`
+## TODO 4: Implement `research_paper_assistant_rag_pipeline`
 
 This is the core RAG function. It connects retrieval (Part 4) to generation (OpenAI) in a single callable pipeline.
 
@@ -88,20 +86,17 @@ def research_paper_assistant_rag_pipeline(
     Summarize findings. Use [X] citations. Highlight consensus and gaps."""
 
     response = openai_client.responses.create(
-        model="gpt-4o", input=prompt,
+        model=OPENAI_MODEL, input=prompt,
         instructions="You are a scientific research assistant. Use only provided context. Cite papers [1], [2], etc.",
-        temperature=0.3,
     )
     return response.output_text
 ```
-
-**Key concept:** The `temperature=0.3` setting makes the model more deterministic. For RAG, you want the model to faithfully report what the retrieved papers say — not to be creative. Lower temperature reduces hallucination risk at the cost of some variety.
 
 **What `instructions` vs `input` does:** The `instructions` field is the system-level directive (how to behave). The `input` field is the user-level content (what to answer). Separating them gives the model clear role boundaries.
 
 ## Troubleshooting
 
-**"Invalid API key"** — Re-run the `set_env_securely` cell with a valid OpenAI key.
+**"Invalid API key"** — Verify your `OPENAI_API_KEY` environment variable is set correctly.
 
 **Empty retrieval** — Check Part 4 functions work independently before debugging the pipeline. Run a vector search directly and verify it returns results.
 
